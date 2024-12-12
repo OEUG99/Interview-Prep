@@ -11,3 +11,4 @@
   - An attack or event where the CAM table of a switch is overwhelmed with fake MAC address entries.
   - This causes the switch to fail in its normal operations.
   - Additionally it typically forces the switch into **flooding mode**, where it broadcasts frames to all ports, which can be exploited for **packet sniffing** or **man-in-the-middle (MitM) attacks**.
+  - Prevention: Network segmentation, port security, disabled unused ports, better switches have large CAM tables. IDS for monitoring, Sometiems there is flood protection features. 
