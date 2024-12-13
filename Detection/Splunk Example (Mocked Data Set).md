@@ -1,4 +1,4 @@
-The following data used was mocked, but shows hte steps used investigating potential threats.
+The following data used was mocked, but shows the steps used investigating potential threats via a SIEM system like Splunk.
 
 
 # Splunk Queries and Results
