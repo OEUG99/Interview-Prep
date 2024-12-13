@@ -149,8 +149,3 @@ index=* dest_port=53 action=allowed
 | 2024-12-13 10:40:00 | 192.168.1.5    | 10.0.0.7      | allowed  | 2            | UDP      | 53        | example.com                  | United States  |
 | 2024-12-13 10:42:00 | 192.168.1.1    | 10.0.0.7      | allowed  | 3            | UDP      | 53        | api.safe-site.org            | United States  |
 | 2024-12-13 10:45:00 | 192.168.1.6    | 10.0.0.7      | allowed  | 5            | UDP      | 53        | suspicious-long-query.bad.net | China          |
-```
-
-
-
-
