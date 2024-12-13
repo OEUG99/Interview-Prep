@@ -92,6 +92,44 @@ index=security_logs protocol=udp
 | 2024-12-13 10:30:00 | 192.168.1.6    | 10.0.0.10       | blocked    | 6                | UDP          | 161           | SNMP/2c        | China       |
 
 ---
+## Query 7: Events by Destination Port
+**Query:**
+```spl
+index=security_logs | stats count by dest_port
+```
+**Result:**
+| **dest_port** | **count** |
+|---------------|-----------|
+| 22            | 1         |
+| 23            | 1         |
+| 53            | 1         |
+| 161           | 1         |
+| 3389          | 1         |
+| 443           | 2         |
+| 80            | 1         |
+
+---
+
+## Query 8: Timechart of Events by Protocol
+**Query:**
+```spl
+index=security_logs | timechart count by protocol
+```
+**Result:**
+| **_time**           | **TCP** | **UDP** |
+|----------------------|---------|---------|
+| 2024-12-13 10:00:00 | 1       | 0       |
+| 2024-12-13 10:05:00 | 1       | 0       |
+| 2024-12-13 10:10:00 | 0       | 1       |
+| 2024-12-13 10:15:00 | 1       | 0       |
+| 2024-12-13 10:20:00 | 1       | 0       |
+| 2024-12-13 10:25:00 | 1       | 0       |
+| 2024-12-13 10:30:00 | 0       | 1       |
+| 2024-12-13 10:35:00 | 1       | 0       |
+
+---
 
 # Recommendations
-- Hardening vulnerable protocols (e.g., Telnet, SNMP), and setting alerts for repeated attacks in future. 
+- Hardening vulnerable protocols (e.g., Telnet, SNMP), and setting alerts for repeated attacks in future.
+- No breaches observed, but `192.168.1.2`  is a high-priority threat. block at firewall level to prevent further attempts.
+- Blocking traffic from the country as a whole could also be a potential step IF our buisness does not operate there. 
