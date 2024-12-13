@@ -132,4 +132,25 @@ index=security_logs | timechart count by protocol
 # Recommendations
 - Hardening vulnerable protocols (e.g., Telnet, SNMP), and setting alerts for repeated attacks in future.
 - No breaches observed, but `192.168.1.2`  is a high-priority threat. block at firewall level to prevent further attempts.
-- Blocking traffic from the country as a whole could also be a potential step IF our buisness does not operate there. 
+- Blocking traffic from the country as a whole could also be a potential step IF our buisness does not operate there.
+- Another further thing to check is for DNS Exfiltration via subdomains. DNS informaiton might be in another index. I only say this because UDP was
+
+# Checking DNS to be safe (Mock result of what it might look like)
+- We will check all logs via * to be safe.
+
+**Query:**
+```spl
+index=* dest_port=53 action=allowed
+```
+
+**Results:**
+| _time               | src_ip         | dest_ip       | action   | threat_level | protocol | dest_port | query                         | country        |
+|---------------------|----------------|---------------|----------|--------------|----------|-----------|-------------------------------|----------------|
+| 2024-12-13 10:40:00 | 192.168.1.5    | 10.0.0.7      | allowed  | 2            | UDP      | 53        | example.com                  | United States  |
+| 2024-12-13 10:42:00 | 192.168.1.1    | 10.0.0.7      | allowed  | 3            | UDP      | 53        | api.safe-site.org            | United States  |
+| 2024-12-13 10:45:00 | 192.168.1.6    | 10.0.0.7      | allowed  | 5            | UDP      | 53        | suspicious-long-query.bad.net | China          |
+```
+
+
+
+
