@@ -152,3 +152,9 @@ index=* dest_port=53 action=allowed
 
 
 "suspicious-long-query.bad.net" is obviously a threat and needs to be mitigated as explained above.
+
+
+# Boss of the SOC
+In prep for this role I have done a couple of the challenges listed at https://bots.splunk.com/
+
+This provides a much more realistic data set to work with, and I recommend exploring it for anyone else interested in blue team / SOC work.
